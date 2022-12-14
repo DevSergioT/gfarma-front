@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import { Input } from './componentes/input'
-
+import db from '../'
 
 const api = axios.create({
   baseURL: "mongodb+srv://dbgfarma:1974logan@cluster0.7jr72zl.mongodb.net/?retryWrites=true&w=majority"
