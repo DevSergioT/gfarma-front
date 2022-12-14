@@ -5,6 +5,18 @@
   background: linear-gradient(170deg, rgb(3, 11, 125) 0%, rgb(111, 91, 241) 80%, rgb(50, 32, 255) 100%);
 }
 
+.div1 {
+  width: 100%;
+  height: 0.5rem;
+  background: linear-gradient(90deg, rgba(4, 16, 182, 1) 0%, rgba(245, 249, 103, 1) 100%);
+}
+
+.div2 {
+  width: 100%;
+  height: 0.5rem;
+  background: linear-gradient(90deg, rgba(245, 249, 103, 1) 0%, rgba(4, 16, 182, 1) 100%);
+}
+
 .logo {
   display: flex;
   padding: 2rem;
@@ -14,7 +26,7 @@
 
 .img {
   width: 40%;
-  border-radius: 0.3em;
+  border-radius: 0.6em;
 }
 
 h2 {
@@ -23,50 +35,118 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-.list-client {
+.cliente {
   width: 100%;
   text-align: center;
   color: #ffffff;
-
+  margin-bottom: 3rem;
 }
 
 .list li {
   text-align: justify;
   padding: 0 2rem 3rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   float: left;
-
 }
 
-.container-add {
+.container-section {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding-top: 2.4rem;
 }
 
 .input {
-  width: 90%;
-  height: 2rem;
+  width: 60%;
+  height: 2.5rem;
   padding-left: 0.5rem;
-  margin: 0.3rem;
+  margin: 0.5rem;
   border-radius: 5px;
   border: none;
+  font-size: 1.2rem;
 }
 
-.button {
-  width: 90%;
-  height: 2rem;
+.btn {
+  width: 60%;
+  height: 2.5rem;
   margin: 0.3rem;
-  color: #ffff00;
-  background: #0c03bd;
   border-radius: 5px;
   border: none;
   transform: background 2s;
   margin-bottom: 3rem;
+  font-size: 1.2rem;
+  color: #ffff00;
 }
 
-.button:hover {
-  background: #1003ff;
+.btn.add {
+  background: #0c03bd;
+}
+
+.btn.add:hover {
+  background: #1e12ff;
+}
+
+.btn.delete {
+  background: #f72408;
+}
+
+.btn.delete:hover {
+  background: #fe4643;
+}
+
+.btn.atualizar {
+  background: #039520;
+}
+
+.btn.atualizar:hover {
+  background: #0ed72f;
+}
+
+.delet li {
+  display: flexbox;
+  align-items: flex-end;
+  text-align: justify;
+  float: left;
+  font-size: 1.3rem;
+  color: #aa1703;
+  margin: 2rem;
+  gap: 2rem;
+
+}
+
+@media screen and (max-width: 600px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .list li {
+    text-align: justify;
+    padding: 0 2rem 1rem;
+    font-size: 0.8rem;
+    float: left;
+  }
+
+  .delet li {
+    text-align: justify;
+    font-size: 0.8rem;
+    float: left;
+  }
+
+  .img {
+    width: 70%;
+    border-radius: 0.6em;
+  }
+
+  .input {
+    font-size: 0.8rem;
+    height: 1.7rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    height: 1.7rem;
+  }
 }

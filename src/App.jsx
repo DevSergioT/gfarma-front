@@ -2,61 +2,87 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import { Input } from './componentes/input'
 
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: "mongodb+srv://dbgfarma:1974logan@cluster0.7jr72zl.mongodb.net/?retryWrites=true&w=majority"
 })
+
 
 function App() {
 
-  const [users, setUsers] = useState([])
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [age, setAge] = useState('')
-
-  useEffect(() => {
-    api.get("/cliente").then((response) => {
-
-      console.log(response.data)
-      setUsers(response.data)
-    })
-  }, [])
-
-
-  function newUsers() {
-    api.post('/cliente', {
-      email, name, age,
-    }).then((response) => {
-      alert("cadastrado com sucesso")
-    })
-  }
 
   return (
+
+
     <div className="container">
+
       <div className='logo'>
         <img className='img' src='logo-gfarma.jpg' alt='logomarca' />
       </div>
-      <div className='list-client'>
-        <h2>Clientes</h2>
+
+      <div className='container-section cliente'>
+        <h2>Clientes cadastrados</h2>
+
         <ul className='list'>
           {users.map((user) => (
-            <li key={user.name}>
-              E-mail: {user.email}<br />  Nome: {user.name}<br /> Idade: {user.age}</li>
+            <li key={user.id}>
+              Id: {user.id}<br /> E-mail: {user.email}<br />  Nome: {user.name}<br /> Idade: {user.age}</li>
           ))}
 
         </ul>
       </div>
-      <div className='container-add'>
 
+      <div className='div1'></div>
+
+      <div className='container-section'>
         <h2>Adicionar novo cliente</h2>
+        <Input
+          type='text'
+          placeholder='Nome@email.com'
+        />
+        <input className='input' type='number' placeholder='posição' onChange={event => { setId(event.target.value) }} />
 
         <input className='input' type='e-mail' placeholder='nome@email.com' onChange={event => setEmail(event.target.value)} />
+
         <input className='input' type='text' placeholder='Nome' onChange={event => setName(event.target.value)} />
+
         <input className='input' type='number' placeholder='Idade' onChange={event => setAge(event.target.value)} />
 
-        <button className='button' type='subimit' onClick={newUsers}>Adicionar cliente</button>
+        <button className='btn add' type='submit' onClick={newUsers}>Adicionar cliente</button>
       </div>
+
+      <div className='div2'></div>
+
+      <div className='container-section'>
+        <h2>Atualizar cliente</h2>
+
+        <input className='input' type='e-mail' placeholder='nome@email.com' />
+        <input className='input' type='text' placeholder='Nome' />
+        <input className='input' type='number' placeholder='Idade' />
+        <button className='btn atualizar' type='subimit' >Atualizar cadastro</button>
+      </div>
+
+      <div className='div1'></div>
+
+      <div className='container-section'>
+        <h2>Deletar cliente</h2>
+
+        <ul className=' delet'>
+          {users.map((user) => (
+            <li key={user.id}>
+              Id: {user.id}<br /> Nome: {user.name}</li>
+          ))}
+
+        </ul>
+
+
+        <input className='input' type='number' placeholder='Digite a posição' onChange={excluir => setId(excluir.target.value)} />
+
+        <button className='btn delete' type='subimit' onClick={excluirName} >Deletar cadastro</button>
+      </div>
+
 
     </div>
   )
