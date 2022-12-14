@@ -3,15 +3,25 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import { Input } from './componentes/input'
-
+import db from '.'
 
 const api = axios.create({
-  baseURL: "http://localhost3000"
+  baseURL: "http://localhost3001"
 })
 
 
 function App() {
 
+  const getUsers = () => {
+    useEffect(async () => {
+      try {
+        const users = api.get('/users');
+        console.log(users);
+      } catch (error) {
+        console.log(error);
+      };
+    });
+  };
 
   return (
 
